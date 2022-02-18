@@ -4,6 +4,11 @@
         {{ session('message') }}
     </div>
 @endif
+@if (session('status'))
+    <div class="alert alert-primary">
+        {{ session('status') }}
+    </div>
+@endif
 <h2 style="text-align: center"><u>Customer Details</u></h2>
 
 <table border="1" class="table table-dark table-hover">
