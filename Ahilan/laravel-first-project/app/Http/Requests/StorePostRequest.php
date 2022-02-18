@@ -29,4 +29,5 @@ class StorePostRequest extends FormRequest
             'address' => 'required|min:3|max:255'
         ];
     }
+    
 }
