@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{asset('css/app.css')}}">
+@include('layouts.master')
 <h1 style="text-align:center">{{$customer->first_name}} Details</h1>
 <p><b>ID: </b>{{$customer->id}}</p>
 <p><b>First Name: </b>{{$customer->first_name}}</p>

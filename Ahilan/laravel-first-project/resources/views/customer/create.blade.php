@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{asset('css/app.css')}}">
+@include('layouts.master')
 <div class="container">
 @if (session('status'))
     <div class="alert alert-success">

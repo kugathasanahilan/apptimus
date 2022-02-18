@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{asset('css/app.css')}}">
+@include('layouts.master')
 <h2 style="text-align: center"><u>Customer Details</u></h2>
 
 <table border="1" class="table table-dark table-hover">

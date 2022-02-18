@@ -1,7 +1,8 @@
 <link rel="stylesheet" href="{{asset('css/app.css')}}">
+<script src="{{asset('js/app.js')}}"></script>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Apptimo</a>
+    <a class="navbar-brand" href="https://apptimustech.com/" target="_blank">Apptimo</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
