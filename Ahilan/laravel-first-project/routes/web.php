@@ -1,7 +1,7 @@
 <?php
-use App\Http\Controllers\CustomerController;
-use Illuminate\Support\Facades\Route;
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CustomerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,8 +12,16 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::resource('customers', CustomerController::class)->middleware('auth');
+
+
 
 Route::get('/', function () {
-    return view('welcome');
-});
-Route::resource('customers', CustomerController::class);
+    return view('customer.create');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
