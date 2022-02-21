@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Customer;
+use App\Http\Requests\StorePostRequest;
 
 class CustomerController extends Controller
 {
@@ -33,20 +34,20 @@ class CustomerController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StorePostRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
         //
-        $data = $request -> all;
-        $fna=$request->input('fname');
-        $lna=$request->input('lname');
+        $valiated = $request->validated();
+        $firstname=$request->input('first_name');
+        $lastname=$request->input('last_name');
         $address=$request->input('address');
 
         $customer=new Customer();
-        $customer->first_name=$fna;
-        $customer->last_name=$lna;
+        $customer->first_name=$firstname;
+        $customer->last_name=$lastname;
         $customer->address=$address;
        
         $customer->save();
@@ -75,6 +76,8 @@ class CustomerController extends Controller
     public function edit($id)
     {
         //
+        $customer=Customer::find($id);
+        return view('customer.edit',compact('customer'));
     }
 
     /**
@@ -84,9 +87,21 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StorePostRequest $request, $id)
     {
         //
+        $valiated=$request->validated();
+        $firstname=$request->input('first_name');
+        $lastname=$request->input('last_name');
+        $address=$request->input('address');
+
+        $customer=Customer::find($id);
+        $customer->first_name=$firstname;
+        $customer->last_name=$lastname;
+        $customer->address=$address;
+        $customer->save();
+
+        return redirect('customers/'.$id.'/edit')->with('status','User Updated!');
     }
 
     /**
