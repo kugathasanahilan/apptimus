@@ -18,7 +18,7 @@ Route::resource('customers', CustomerController::class)->middleware('auth');
 
 Route::get('/', function () {
     return view('customer.create');
-})->middleware(['auth'])->name('dashboard');
+})->middleware(['auth']);
 
 require __DIR__.'/auth.php';
 
